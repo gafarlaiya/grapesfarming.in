@@ -6,13 +6,8 @@
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
+    "run_worker_first": true,
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
-  },
-  "routes": [
-    { "pattern": "grapesfarming.in/*", "zone_name": "grapesfarming.in" },
-    { "pattern": "www.grapesfarming.in/*", "zone_name": "grapesfarming.in" },
-    { "pattern": "grapesfarming.com/*", "zone_name": "grapesfarming.com" },
-    { "pattern": "www.grapesfarming.com/*", "zone_name": "grapesfarming.com" }
-  ]
+  }
 }

@@ -1,10 +1,5 @@
-# Preview hosts: automatic noindex, nofollow so staging never competes with grapesfarming.in
-https://*.workers.dev/*
-  X-Robots-Tag: noindex, nofollow
-
-https://*.pages.dev/*
-  X-Robots-Tag: noindex, nofollow
-
+# Path-based security & caching headers (Workers Static Assets & Pages compatible)
+# Host-based X-Robots-Tag: noindex, nofollow for *.workers.dev / *.pages.dev is enforced by src/worker.js (run_worker_first: true)
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

@@ -260,24 +260,38 @@ if (missingSafety.length === 0) {
   fail('Gate 5 · Safety Rules', `Missing: ${missingSafety.join(', ')}`);
 }
 
-// Gate 6: robots.txt, sitemap.xml, _headers (workers.dev noindex), _redirects (301)
+// Gate 6: robots.txt, sitemap.xml, Workers-compatible _headers/_redirects & src/worker.js 301/noindex
 const robots = fs.readFileSync(path.join(DIST, 'robots.txt'), 'utf8');
 const sitemap = fs.readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8');
 const headers = fs.readFileSync(path.join(DIST, '_headers'), 'utf8');
 const redirects = fs.readFileSync(path.join(DIST, '_redirects'), 'utf8');
+const wranglerCfg = fs.readFileSync(path.join(ROOT, 'wrangler.jsonc'), 'utf8');
+const workerSrc = fs.readFileSync(path.join(ROOT, 'src/worker.js'), 'utf8');
+
+const redirectsHaveAbsoluteSource = redirects
+  .split('\n')
+  .filter((l) => l.trim() && !l.trim().startsWith('#'))
+  .some((l) => /^https?:\/\//i.test(l.trim()));
+
+const headersHaveAbsoluteSource = headers
+  .split('\n')
+  .filter((l) => l.trim() && !l.trim().startsWith('#'))
+  .some((l) => /^https?:\/\//i.test(l.trim()));
 
 if (
   robots.includes('Sitemap: https://grapesfarming.in/sitemap.xml') &&
   sitemap.includes('https://grapesfarming.in/mr/draksha-sheti/') &&
   !sitemap.includes('workers.dev') &&
-  headers.includes('https://*.workers.dev/*') &&
-  headers.includes('X-Robots-Tag: noindex, nofollow') &&
-  redirects.includes('https://grapesfarming.com/* https://grapesfarming.in/:splat 301') &&
-  redirects.includes('https://grapefarming.in/* https://grapesfarming.in/:splat 301')
+  !redirectsHaveAbsoluteSource &&
+  !headersHaveAbsoluteSource &&
+  wranglerCfg.includes('"run_worker_first": true') &&
+  workerSrc.includes('X-Robots-Tag') &&
+  workerSrc.includes('grapesfarming.com') &&
+  workerSrc.includes('grapefarming.in')
 ) {
-  pass('Gate 6 · Deployment, Sitemap, Noindex & 301 Redirects', 'robots.txt, sitemap.xml, *.workers.dev X-Robots-Tag noindex, and 301 redirects verified');
+  pass('Gate 6 · Deployment, Sitemap, Noindex & 301 Redirects', 'robots.txt, sitemap.xml, Workers-safe relative _headers/_redirects, run_worker_first & Worker 301/noindex verified');
 } else {
-  fail('Gate 6 · Deployment Config', 'One or more checks failed in robots.txt, sitemap.xml, _headers, or _redirects');
+  fail('Gate 6 · Deployment Config', 'One or more checks failed in robots.txt, sitemap.xml, _headers, _redirects, wrangler.jsonc, or src/worker.js');
 }
 
 console.log('\n=== grapesfarming.in Gate Verification Report ===');

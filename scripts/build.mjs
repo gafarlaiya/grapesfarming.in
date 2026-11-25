@@ -96,13 +96,8 @@ Sitemap: ${SITE.origin}/sitemap.xml
 }
 
 function buildCloudflareHeaders() {
-  return `# Preview hosts: automatic noindex, nofollow so staging never competes with grapesfarming.in
-https://*.workers.dev/*
-  X-Robots-Tag: noindex, nofollow
-
-https://*.pages.dev/*
-  X-Robots-Tag: noindex, nofollow
-
+  return `# Path-based security & caching headers (Workers Static Assets & Pages compatible)
+# Host-based X-Robots-Tag: noindex, nofollow for *.workers.dev / *.pages.dev is enforced by src/worker.js (run_worker_first: true)
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
@@ -114,18 +109,14 @@ https://*.pages.dev/*
 }
 
 function buildCloudflareRedirects() {
-  return `# Permanent 301 canonical redirects for alternate domains, spellings, and www
-https://grapesfarming.com/* https://grapesfarming.in/:splat 301
-http://grapesfarming.com/* https://grapesfarming.in/:splat 301
-https://www.grapesfarming.com/* https://grapesfarming.in/:splat 301
-http://www.grapesfarming.com/* https://grapesfarming.in/:splat 301
-https://www.grapesfarming.in/* https://grapesfarming.in/:splat 301
-http://www.grapesfarming.in/* https://grapesfarming.in/:splat 301
-https://grapefarming.in/* https://grapesfarming.in/:splat 301
-http://grapefarming.in/* https://grapesfarming.in/:splat 301
-https://www.grapefarming.in/* https://grapesfarming.in/:splat 301
-https://grapefarming.com/* https://grapesfarming.in/:splat 301
-https://www.grapefarming.com/* https://grapesfarming.in/:splat 301
+  return `# Relative-path 301 redirects (Cloudflare Workers Static Assets & Pages compatible)
+# Host-level 301 redirects (grapesfarming.com, www, grapefarming.in -> https://grapesfarming.in) are enforced by src/worker.js (run_worker_first: true)
+/calculator /fertilizer-schedule-and-calculator/ 301
+/mr /mr/draksha-sheti/ 301
+/pruning /april-and-october-pruning/ 301
+/diseases /diseases-and-pests/ 301
+/varieties /varieties-and-rootstocks/ 301
+/export /grapenet-raisins-and-profit/ 301
 `;
 }
 
