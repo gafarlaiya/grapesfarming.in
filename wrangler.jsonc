@@ -9,5 +9,9 @@
     "run_worker_first": true,
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
-  }
+  },
+  "routes": [
+    { "pattern": "grapesfarming.in", "custom_domain": true },
+    { "pattern": "www.grapesfarming.in", "custom_domain": true }
+  ]
 }
