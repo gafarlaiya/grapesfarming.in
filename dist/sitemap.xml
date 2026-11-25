@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://grapesfarming.in/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://grapesfarming.in/"/>
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://grapesfarming.in/mr/draksha-sheti/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://grapesfarming.in/"/>
+  </url>
+  <url>
+    <loc>https://grapesfarming.in/varieties-and-rootstocks/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://grapesfarming.in/april-and-october-pruning/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://grapesfarming.in/fertilizer-schedule-and-calculator/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://grapesfarming.in/ga3-cppu-and-berry-disorders/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://grapesfarming.in/diseases-and-pests/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://grapesfarming.in/grapenet-raisins-and-profit/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://grapesfarming.in/mr/draksha-sheti/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://grapesfarming.in/"/>
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://grapesfarming.in/mr/draksha-sheti/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://grapesfarming.in/"/>
+  </url>
+  <url>
+    <loc>https://grapesfarming.in/editorial-policy/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.5</priority>
+  </url>
+</urlset>

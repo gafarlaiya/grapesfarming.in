@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "grapesfarming-in",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "grapesfarming.in/*", "zone_name": "grapesfarming.in" },
+    { "pattern": "www.grapesfarming.in/*", "zone_name": "grapesfarming.in" },
+    { "pattern": "grapesfarming.com/*", "zone_name": "grapesfarming.com" },
+    { "pattern": "www.grapesfarming.com/*", "zone_name": "grapesfarming.com" }
+  ]
+}

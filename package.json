@@ -1,0 +1,17 @@
+{
+  "name": "grapesfarming-in",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Primary-source Indian viticulture reference, interactive drip fertilizer calculator, and APEDA GrapeNet export guide for grapesfarming.in",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "verify": "node scripts/verify.mjs",
+    "preview": "node scripts/preview.mjs",
+    "check": "npm run build && npm test && npm run verify"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
